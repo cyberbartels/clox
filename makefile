@@ -5,7 +5,7 @@ OBJ = $(SRC:.c=.o)
 .PHONY: clean
 
 clox: 
-	cc main.c chunk.c memory.c debug.c value.c vm.c -o clox
+	cc main.c chunk.c memory.c debug.c value.c vm.c compiler.c scanner.c -o clox
 
 clean:
 	rm -f $(OBJ) clox
