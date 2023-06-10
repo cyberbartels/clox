@@ -1,3 +1,6 @@
-var a=1;
+var a=0;
 print a;
-if(a>=1) print a;
+if(a>=1) 
+print a;
+else
+print "Y";
