@@ -5,7 +5,7 @@ OBJ = $(SRC:.c=.o)
 .PHONY: clean
 
 clox: 
-	cc $(SRC) -o clox
+	cc $(SRC) -v -o clox
 
 clean:
-	rm -f $(OBJ) clox
+	rm -fv $(OBJ)
