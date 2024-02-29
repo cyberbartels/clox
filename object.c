@@ -16,6 +16,11 @@ static Obj *allocateObject(size_t size, ObjType type) {
 
   object->next = vm.objects;
   vm.objects = object;
+
+#ifdef DEBUG_LOG_GC
+  printf("%p allocate %zu for %d\n", (void *)object, size, type);
+#endif
+
   return object;
 }
 
@@ -29,7 +34,7 @@ ObjClosure *newClosure(ObjFunction *function) {
   closure->function = function;
   closure->upvalues = upvalues;
   closure->upvalueCount = function->upvalueCount;
-  
+
   return closure;
 }
 
