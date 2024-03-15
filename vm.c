@@ -165,8 +165,8 @@ static bool isFalsey(Value value) {
 }
 
 static void concatenate() {
-  ObjString* b = AS_STRING(peek(0));
-  ObjString* a = AS_STRING(peek(1));
+  ObjString *b = AS_STRING(peek(0));
+  ObjString *a = AS_STRING(peek(1));
 
   int length = a->length + b->length;
   char *chars = ALLOCATE(char, length + 1);
@@ -387,6 +387,9 @@ static InterpretResult run() {
       frame = &vm.frames[vm.frameCount - 1];
       break;
     }
+    case OP_CLASS:
+      push(OBJ_VAL(newClass(READ_STRING())));
+      break;
     }
   }
 
